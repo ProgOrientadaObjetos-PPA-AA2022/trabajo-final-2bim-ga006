@@ -8,12 +8,14 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
     private double costoGB;
     private double pDescuento;
 
-    public PlanPostPagoMinutosMegasEconomico(int n, double m, int c, double z, double x) {
+    public PlanPostPagoMinutosMegasEconomico(String np, String cep, String cip, String mac, 
+            String moc, String nc,int n, double m, int c, double z, double x) {
+        super(np,cep,cip,mac,moc,nc);
         minutos = n;
         costoMinuto = m;
         numeroMegasGB = c;
         costoGB = z;
-        pDescuento = x;
+        pDescuento = x/100;
     }
 
     public void establecerMinutos(int n) {

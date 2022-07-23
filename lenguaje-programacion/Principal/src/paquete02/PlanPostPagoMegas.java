@@ -7,7 +7,9 @@ public class PlanPostPagoMegas extends PlanCelular{
     private double costoGB;
     private double tarifaBase;
     
-    public PlanPostPagoMegas(int n, double m, double z){
+    public PlanPostPagoMegas(String np, String cep, String cip, String mac, 
+            String moc, String nc,int n, double m, double z){
+        super(np,cep,cip,mac,moc,nc);
         numeroMegasGB = n;
         costoGB = m;
         tarifaBase = z;

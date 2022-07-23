@@ -11,8 +11,16 @@ public abstract class PlanCelular {
     protected String numeroCelular;
     protected double pagoMensual;
 
-    
-    
+    public PlanCelular(String np, String cep, String cip, String mac, String moc, String nc) {
+        nombresPropietario = np;
+        cedulaPropietario = cep;
+        ciudadPropietario = cip;
+        marcaCelular = mac;
+        modeloCelular = moc;
+        numeroCelular = nc;
+    }
+
+   
     
     public void establecerNombresPropietario(String n) {
         nombresPropietario = n;
