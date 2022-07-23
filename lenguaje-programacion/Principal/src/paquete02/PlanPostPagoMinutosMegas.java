@@ -8,6 +8,13 @@ public class PlanPostPagoMinutosMegas extends PlanCelular{
     private int numeroMegasGB;
     private double costoGB;
     
+    public PlanPostPagoMinutosMegas(int n, double m, int c, double z){
+        minutos = n;
+        costoMinuto = m;
+        numeroMegasGB = c;
+        costoGB = z;
+    }
+    
     public void establecerMinutos(int n) {
         minutos = n;
     }

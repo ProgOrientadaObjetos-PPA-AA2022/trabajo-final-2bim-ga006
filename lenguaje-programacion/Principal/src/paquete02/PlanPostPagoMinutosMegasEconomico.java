@@ -1,14 +1,21 @@
-
 package paquete02;
 
+public class PlanPostPagoMinutosMegasEconomico extends PlanCelular {
 
-public class PlanPostPagoMinutosMegasEconomico extends PlanCelular{
     private int minutos;
     private double costoMinuto;
     private int numeroMegasGB;
     private double costoGB;
     private double pDescuento;
-    
+
+    public PlanPostPagoMinutosMegasEconomico(int n, double m, int c, double z, double x) {
+        minutos = n;
+        costoMinuto = m;
+        numeroMegasGB = c;
+        costoGB = z;
+        pDescuento = x;
+    }
+
     public void establecerMinutos(int n) {
         minutos = n;
     }
@@ -24,7 +31,7 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular{
     public double obtenerCostoMinuto() {
         return costoMinuto;
     }
-    
+
     public void establecerNumeroMegasGB(int n) {
         numeroMegasGB = n;
     }
@@ -40,27 +47,27 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular{
     public double obtenerCostoGB() {
         return costoGB;
     }
-    
+
     public void establecerPDescuento(double n) {
-        pDescuento = n/100;
+        pDescuento = n / 100;
     }
 
     public double obtenerPDescuento() {
         return pDescuento;
     }
-    
+
     @Override
     public void calcularPagoMensual() {
-        double subtotal = (minutos * costoMinuto) + 
-                (numeroMegasGB * costoGB);
+        double subtotal = (minutos * costoMinuto)
+                + (numeroMegasGB * costoGB);
         pagoMensual = subtotal - (pDescuento * subtotal);
     }
-    
+
     @Override
-    public double obtenerPagoMensual(){
+    public double obtenerPagoMensual() {
         return pagoMensual;
     }
-    
+
     @Override
     public String toString() {
         String cadena = String.format("Plan PostPago MinutosMegas Economico\n"
@@ -70,10 +77,10 @@ public class PlanPostPagoMinutosMegasEconomico extends PlanCelular{
                 + "\tNumero de Megas (GB): %d\n"
                 + "\tCosto del GB: %.2f\n"
                 + "\tPorcentage Descuento: %.2f\n"
-                + "\tPago mensual: %.2f\n", 
-                obtenerMinutos(),obtenerCostoMinuto(),
+                + "\tPago mensual: %.2f\n",
+                obtenerMinutos(), obtenerCostoMinuto(),
                 obtenerNumeroMegasGB(),
-                obtenerCostoGB(),obtenerPDescuento()*100,
+                obtenerCostoGB(), obtenerPDescuento() * 100,
                 obtenerPagoMensual());
         return cadena;
     }

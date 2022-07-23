@@ -8,6 +8,13 @@ public class PlanPostPagoMinutos extends PlanCelular{
     private int minutosInternacionales;
     private double costoMinutoInternacional;
     
+    public PlanPostPagoMinutos(int n, double m, int c, double z){
+        minutosNacionales = n;
+        costoMinutoNacional = m;
+        minutosInternacionales = c;
+        costoMinutoInternacional = z;
+    }
+    
     public void establecerMinutosNacionales(int n) {
         minutosNacionales = n;
     }

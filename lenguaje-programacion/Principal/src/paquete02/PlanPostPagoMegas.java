@@ -7,6 +7,12 @@ public class PlanPostPagoMegas extends PlanCelular{
     private double costoGB;
     private double tarifaBase;
     
+    public PlanPostPagoMegas(int n, double m, double z){
+        numeroMegasGB = n;
+        costoGB = m;
+        tarifaBase = z;
+    }
+    
     public void establecerNumeroMegasGB(int n) {
         numeroMegasGB = n;
     }
