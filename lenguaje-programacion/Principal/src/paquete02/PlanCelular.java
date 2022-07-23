@@ -1,8 +1,7 @@
-
 package paquete02;
 
-
 public abstract class PlanCelular {
+
     protected String nombresPropietario;
     protected String cedulaPropietario;
     protected String ciudadPropietario;
@@ -11,7 +10,8 @@ public abstract class PlanCelular {
     protected String numeroCelular;
     protected double pagoMensual;
 
-    public PlanCelular(String np, String cep, String cip, String mac, String moc, String nc) {
+    public PlanCelular(String np, String cep, String cip, String mac, 
+            String moc, String nc) {
         nombresPropietario = np;
         cedulaPropietario = cep;
         ciudadPropietario = cip;
@@ -20,8 +20,6 @@ public abstract class PlanCelular {
         numeroCelular = nc;
     }
 
-   
-    
     public void establecerNombresPropietario(String n) {
         nombresPropietario = n;
     }
@@ -45,7 +43,7 @@ public abstract class PlanCelular {
     public String obtenerCiudadPropietario() {
         return ciudadPropietario;
     }
-    
+
     public void establecerMarcaCelular(String n) {
         marcaCelular = n;
     }
@@ -69,13 +67,13 @@ public abstract class PlanCelular {
     public String obtenerNumeroCelular() {
         return numeroCelular;
     }
-    
+
     public abstract void calcularPagoMensual();
 
     public double obtenerPagoMensual() {
         return pagoMensual;
     }
-    
+
     @Override
     public String toString() {
         String cadena = String.format("--------------------\n"
@@ -86,12 +84,12 @@ public abstract class PlanCelular {
                 + "Celular\n"
                 + "\tMarca del Celular: %s\n"
                 + "\tModelo del Celular: %s\n"
-                + "\tNumero del Celular: %s\n", 
+                + "\tNumero del Celular: %s\n",
                 obtenerNombresPropietario(), obtenerCedulaPropietario(),
-                obtenerCiudadPropietario(), obtenerMarcaCelular(), 
+                obtenerCiudadPropietario(), obtenerMarcaCelular(),
                 obtenerModeloCelular(), obtenerNumeroCelular());
 
         return cadena;
     }
-    
+
 }

@@ -6,11 +6,13 @@ public class Principal {
     
     public static void main(String[] args) {
         
-        PlanPostPagoMinutos a = new PlanPostPagoMinutos(null,null,null,null,null,null,100, 200, 3, 5);
+        PlanPostPagoMinutos a = new PlanPostPagoMinutos
+        (null,null,null,null,null,null,100, 200, 3, 5);
         a.calcularPagoMensual();
         System.out.println(a);
         
-        PlanPostPagoMegas b = new PlanPostPagoMegas(null,null,null,null,null,null,5000,0.5, 10);
+        PlanPostPagoMegas b = new PlanPostPagoMegas
+        (null,null,null,null,null,null,5000,0.5, 10);
         b.calcularPagoMensual();
         System.out.println(b);
         
