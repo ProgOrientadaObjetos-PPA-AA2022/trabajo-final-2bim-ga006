@@ -10,28 +10,31 @@ public class Principal {
         Scanner entrada = new Scanner(System.in);
         ArrayList<PlanCelular> lista = new ArrayList<>();
 
-        System.out.println("Ingrese el nombre del Propietario:");
-        String nom = entrada.nextLine();
-        System.out.println("Ingrese el número de Cédula del Propietario:");
-        String ced = entrada.nextLine();
-        System.out.println("Ingrese la Ciudad del Propietario:");
-        String ciu = entrada.nextLine();
-        System.out.println("Ingrese la Marca del celular:");
-        String mar = entrada.nextLine();
-        System.out.println("Ingrese el Modelo del celular:");
-        String mod = entrada.nextLine();
-        System.out.println("Ingrese el Número de telefono:");
-        String nume = entrada.nextLine();
-
-        int op = 0;
+        int op;
 
         do {
+   
             System.out.println("\t------Plan Celular------\n"
                     + "Ingrese (1) para un Plan de Megas\n"
                     + "Ingrese (2) para un Plan de Minutos\n"
                     + "Ingrese (3) para un Plan de Megas y Minutos\n"
                     + "Ingrese (4) para un Plan de  Minutos y Megas Económico\n");
             op = entrada.nextInt();
+            
+            entrada.nextLine();
+
+            System.out.println("Ingrese el nombre del Propietario:");
+            String nom = entrada.nextLine();
+            System.out.println("Ingrese el número de Cédula del Propietario:");
+            String ced = entrada.nextLine();
+            System.out.println("Ingrese la Ciudad del Propietario:");
+            String ciu = entrada.nextLine();
+            System.out.println("Ingrese la Marca del celular:");
+            String mar = entrada.nextLine();
+            System.out.println("Ingrese el Modelo del celular:");
+            String mod = entrada.nextLine();
+            System.out.println("Ingrese el Número de telefono:");
+            String nume = entrada.nextLine();
 
             switch (op) {
                 case 1 -> {
@@ -90,11 +93,15 @@ public class Principal {
                 case 0 ->
                     System.out.println("Fin del programa");
             }
-            entrada.nextLine();
 
-            System.out.println("Ingrese 0 para salir.");
-            op = 0;
-
+            System.out.println("Ingrese '0' para seguir ingresando Propietarios.");
+            op = entrada.nextInt();
+            
         } while (op != 0);
+        
+        for (int i = 0; i < lista.size(); i++) {
+            System.out.println(lista.get(i));
+        }
+        
     }
 }
