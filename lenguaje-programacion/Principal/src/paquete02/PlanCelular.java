@@ -10,6 +10,11 @@ public abstract class PlanCelular {
     protected String numeroCelular;
     protected double pagoMensual;
 
+    public PlanCelular() {
+    }
+    
+    
+
     public PlanCelular(String np, String cep, String cip, String mac, 
             String moc, String nc) {
         nombresPropietario = np;
