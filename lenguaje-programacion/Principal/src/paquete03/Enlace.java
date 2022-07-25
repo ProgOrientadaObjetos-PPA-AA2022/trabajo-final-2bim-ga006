@@ -37,14 +37,15 @@ public class Enlace {
         try{  
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
+            planm.calcularPagoMensual();
             String data = String.format("INSERT INTO PlanPostPagoMinutos "
                     + "(nombresPropietario,"
                     + "cedulaPropietario,ciudadPropietario,marcaCelular,"
                     + "modeloCelular,numeroCelular,minutosNacionales,"
                     + "costoMinutoNacional,minutosInternacionales,"
                     + "costoMinutoInternacional,pagoMensual) "
-                    + "values ('%s', '%s', '%s', '%s', '%s', '%s', %d, %.2f,"
-                    + "%d, %.2f, %.2f)",
+                    + "values ('%s', '%s', '%s', '%s', '%s', '%s', %d, %s,"
+                    + "%d, %s, %s)",
                     planm.obtenerNombresPropietario(),
                     planm.obtenerCedulaPropietario(), 
                     planm.obtenerCiudadPropietario(),
@@ -56,7 +57,7 @@ public class Enlace {
                     planm.obtenerMinutosInternacionales(),
                     planm.obtenerCostoMinutoInternacional(),
                     planm.obtenerPagoMensual());
-            System.out.println(data);
+            System.out.println("\n");
             statement.executeUpdate(data);
             obtenerConexion().close();
         } catch (SQLException e) {  
@@ -86,7 +87,7 @@ public class Enlace {
                         rs.getDouble("costoMinutoNacional"),
                         rs.getInt("minutosInternacionales"),
                         rs.getDouble("costoMinutoInternacional"));
-                
+                planm.calcularPagoMensual();
                 lista1.add(planm);
                 
                 
@@ -106,13 +107,14 @@ public class Enlace {
         try{  
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
+            planme.calcularPagoMensual();
             String data = String.format("INSERT INTO PlanPostPagoMegas "
                     + "(nombresPropietario,"
                     + "cedulaPropietario,ciudadPropietario,marcaCelular,"
                     + "modeloCelular,numeroCelular,numeroMegasGB,costoGB,"
                     + "tarifaBase,pagoMensual) "
-                    + "values ('%s', '%s', '%s', '%s', '%s', '%s', %d, %.2f,"
-                    + " %.2f, %.2f)",
+                    + "values ('%s', '%s', '%s', '%s', '%s', '%s', %d, %s,"
+                    + " %s, %s)",
                     planme.obtenerNombresPropietario(),
                     planme.obtenerCedulaPropietario(), 
                     planme.obtenerCiudadPropietario(),
@@ -123,7 +125,7 @@ public class Enlace {
                     planme.obtenerCostoGB(),
                     planme.obtenerTarifaBase(),
                     planme.obtenerPagoMensual());
-            System.out.println(data);
+            System.out.println("\n");
             statement.executeUpdate(data);
             obtenerConexion().close();
         } catch (SQLException e) {  
@@ -153,7 +155,7 @@ public class Enlace {
                 planme.establecerNumeroMegasGB(rs.getInt("numeroMegasGB"));
                 planme.establecerCostoGB(rs.getDouble("costoGB"));
                 planme.establecerTarifaBase(rs.getDouble("tarifaBase"));
-                
+                planme.calcularPagoMensual();
                 lista2.add(planme);
             }
             
@@ -171,14 +173,15 @@ public class Enlace {
         try{  
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
+            planmm.calcularPagoMensual();
             String data = String.format("INSERT INTO PlanPostPagoMinutosMegas "
                     + "(nombresPropietario,"
                     + "cedulaPropietario,ciudadPropietario,marcaCelular,"
                     + "modeloCelular,numeroCelular,minutos,"
                     + "costoMinuto,numeroMegasGB,"
                     + "costoGB,pagoMensual) "
-                    + "values ('%s', '%s', '%s', '%s', '%s', '%s', %d, %.2f,"
-                    + "%d, %.2f, %.2f)",
+                    + "values ('%s', '%s', '%s', '%s', '%s', '%s', %d, %s,"
+                    + "%d, %s, %s)",
                     planmm.obtenerNombresPropietario(),
                     planmm.obtenerCedulaPropietario(), 
                     planmm.obtenerCiudadPropietario(),
@@ -190,7 +193,7 @@ public class Enlace {
                     planmm.obtenerNumeroMegasGB(),
                     planmm.obtenerCostoGB(),
                     planmm.obtenerPagoMensual());
-            System.out.println(data);
+            System.out.println("\n");
             statement.executeUpdate(data);
             obtenerConexion().close();
         } catch (SQLException e) {  
@@ -220,7 +223,7 @@ public class Enlace {
                         rs.getDouble("costoMinuto"),
                         rs.getInt("numeroMegasGB"),
                         rs.getDouble("costoGB"));
-                
+                planmm.calcularPagoMensual();
                 lista3.add(planmm);
                 
                 
@@ -240,14 +243,15 @@ public class Enlace {
         try{  
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
+            
             String data = String.format("INSERT INTO PlanPostPagoMinutosMegasEconomico "
                     + "(nombresPropietario,"
                     + "cedulaPropietario,ciudadPropietario,marcaCelular,"
                     + "modeloCelular,numeroCelular,minutos,"
                     + "costoMinuto,numeroMegasGB,"
-                    + "costoGB,pagoMensual) "
-                    + "values ('%s', '%s', '%s', '%s', '%s', '%s', %d, %.2f,"
-                    + "%d, %.2f, %.2f, %.2f)",
+                    + "costoGB,pDescuento,pagoMensual) "
+                    + "values ('%s', '%s', '%s', '%s', '%s', '%s', %d, %s,"
+                    + "%d, %s, %s, %s)",
                     planmme.obtenerNombresPropietario(),
                     planmme.obtenerCedulaPropietario(), 
                     planmme.obtenerCiudadPropietario(),
@@ -260,7 +264,7 @@ public class Enlace {
                     planmme.obtenerCostoGB(),
                     planmme.obtenerPDescuento(),
                     planmme.obtenerPagoMensual());
-            System.out.println(data);
+            System.out.println("\n");
             statement.executeUpdate(data);
             obtenerConexion().close();
         } catch (SQLException e) {  
@@ -275,7 +279,7 @@ public class Enlace {
         try{  
             establecerConexion();
             Statement statement = obtenerConexion().createStatement();
-            String data = "Select * from PlanPostPagoMinutosMegasEc;";
+            String data = "Select * from PlanPostPagoMinutosMegasEconomico;";
             
             ResultSet rs = statement.executeQuery(data);
             while(rs.next()){
@@ -289,8 +293,8 @@ public class Enlace {
                         rs.getInt("minutos"),
                         rs.getDouble("costoMinuto"),
                         rs.getInt("numeroMegasGB"),
-                        rs.getDouble("costoGB"),rs.getDouble("pDescuento"));
-                
+                        rs.getDouble("costoGB"),rs.getDouble("pDescuento")*100);
+                planmme.calcularPagoMensual();
                 lista4.add(planmme);
                 
                 
